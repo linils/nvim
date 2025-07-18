@@ -7,6 +7,7 @@ return {
                 },
                 config = function()
                         local telescope = require("telescope");
+                        local actions = require("telescope.actions")
                         telescope.setup({
                                 defaults = {
                                         layout_strategy = "horizontal",
@@ -19,6 +20,11 @@ return {
                                         results_title = false,
                                         prompt_title = false,
                                         prompt_prefix = " ",
+                                        mappings = {
+                                                i = {
+                                                        ["<Esc>"] = actions.close,
+                                                }
+                                        }
                                 }
                         })
                         local builtin = require("telescope.builtin")
